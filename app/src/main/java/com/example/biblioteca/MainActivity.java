@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Livro> listaLivros = new ArrayList<>();
@@ -51,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pesquisa(View v) {
-        String text = pesquisa.getText().toString();
+        String text = pesquisa.getText().toString().toLowerCase();
         ArrayList<Livro> FiltroLivro = new ArrayList<>();
         for (Livro L : listaLivros) {
-            if (L.getNome().contains(text)) {
+            if (L.getNome().toLowerCase().contains(text)) {
                 FiltroLivro.add(L);
             }
         }
